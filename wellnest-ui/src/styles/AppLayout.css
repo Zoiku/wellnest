@@ -1,0 +1,13 @@
+.app-layout {
+  padding: 20px 0;
+}
+
+.app-layout-inner > div:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .app-layout {
+    padding: 10px;
+  }
+}

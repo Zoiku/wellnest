@@ -1,0 +1,69 @@
+.info-cards > div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.info-cards-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-cards-more-action {
+  cursor: pointer;
+}
+
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.info-cards-grid:hover .info-card:not(:hover) {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.info-card {
+  border: 1px solid;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.info-card > div {
+  width: 50%;
+}
+
+.info-card-image {
+  border: 1px solid;
+  height: 140px;
+}
+
+.info-card-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.info-card-details > div:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+.info-card-detail-rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.info-card-detail-rating span {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .info-cards-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

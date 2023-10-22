@@ -1,0 +1,66 @@
+.auth-page {
+  position: relative;
+}
+
+.auth-form-container {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  padding: 30px;
+  border: 1px solid #c5c5c5;
+}
+
+.auth-form-container > div:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.auth-header {
+  text-align: center;
+}
+
+.auth-title {
+  font-size: xx-large;
+}
+
+.auth-form > div:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.auth-button-controller {
+  text-align: center;
+}
+
+.auth-helper {
+  text-align: center;
+  position: relative;
+}
+
+.auth-helper span {
+  padding: 0px 10px;
+  font-size: small;
+  background: white;
+}
+
+.auth-helper-1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, 0%);
+  border-top: 1px solid;
+  z-index: -1;
+}
+
+.auth-helper-action {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .auth-form-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    border: 0;
+  }
+}

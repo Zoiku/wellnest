@@ -1,0 +1,103 @@
+.view-therapist-page > div:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.view-therapist-meta > div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.view-therapist-page-action {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.view-therapist-page-action span {
+  display: flex;
+  align-items: center;
+}
+
+.view-therapist-profile-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-therapist-profile-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.view-therapist-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.view-therapist-profile-image {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #c5c5c5;
+}
+
+.view-therapist-profile-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.view-therapist-reviews-container > div:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.view-therapist-reviews > div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.view-therapist-review {
+  border: 1px solid #c5c5c5;
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.view-therapist-meta-1 > div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.view-therapist-review-text > div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.view-therapist-meta-1-sessions-meta {
+  display: flex;
+  gap: 20px;
+}
+
+.view-therapist-meta-1-tags {
+  padding: 10px;
+  border: 1px solid #c5c5c5;
+}
+
+.tag {
+  background: #efefef;
+  padding: 10px;
+  display: inline-block;
+  font-size: small;
+}
+
+.tag:not(:last-child) {
+  margin: 0 10px 0 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .view-therapist-profile-intro {
+    display: block;
+  }
+
+  .view-therapist-profile-intro > div:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}

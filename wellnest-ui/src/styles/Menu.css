@@ -1,0 +1,9 @@
+.menu-item {
+  padding: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: #efefef;
+}
