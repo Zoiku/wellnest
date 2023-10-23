@@ -1,0 +1,46 @@
+.patient-cards > div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.patient-cards-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.patient-cards-more-action {
+  cursor: pointer;
+}
+
+.patient-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.patient-card {
+  border: 1px solid;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.patient-card-image {
+  width: 200px;
+  border: 1px solid;
+}
+
+.patient-card-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.patient-card-details {
+  width: 100%;
+}
+
+.patient-card-details > div:not(:last-child) {
+  margin-bottom: 5px;
+}

@@ -2,7 +2,7 @@ import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import { useNavigate } from "react-router-dom";
 import avatar from "../assets/avatar.png";
 
-const InfoCard = ({ color }) => {
+const TherapistCard = ({ color }) => {
   const navigate = useNavigate();
   const navigateTo = (path) => () => navigate(path);
 
@@ -10,17 +10,17 @@ const InfoCard = ({ color }) => {
     <div
       style={{ borderColor: color.borderColor }}
       onClick={navigateTo("/user/therapist/1")}
-      className="info-card"
+      className="therapist-card"
     >
       <div
         style={{ borderColor: color.borderColor }}
-        className="info-card-image"
+        className="therapist-card-image"
       >
         <img src={avatar} alt="" />
       </div>
-      <div className="info-card-details">
+      <div className="therapist-card-details">
         <div>John Doe</div>
-        <div className="info-card-detail-rating">
+        <div className="therapist-card-detail-rating">
           <span>
             <StarBorderRoundedIcon fontSize="small" />
           </span>
@@ -32,4 +32,4 @@ const InfoCard = ({ color }) => {
   );
 };
 
-export default InfoCard;
+export default TherapistCard;

@@ -1,25 +1,35 @@
 import "../styles/Nav.css";
 import { Avatar, IconButton } from "@mui/material";
 import NotificationsNoneRoundedIcon from "@mui/icons-material/NotificationsNoneRounded";
-import InboxRoundedIcon from "@mui/icons-material/InboxRounded";
+import SmsOutlinedIcon from "@mui/icons-material/SmsOutlined";
 import Menu from "./Menu";
 import MenuItem from "./MenuItem";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const iconSx = { sx: { color: "black" } };
+const iconSx = { sx: { color: "#24252a" } };
 const avartarSx = {
   sx: { width: 30, height: 30, fontSize: "small", fontWeight: 600 },
 };
 
 const Nav = () => {
   const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const onClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const [anchorEl, setAnchorEl] = useState({
+    profile: null,
+    chats: null,
+    notification: null,
+  });
+  const open = {
+    profile: Boolean(anchorEl.profile),
+    chats: Boolean(anchorEl.chats),
+    notification: Boolean(anchorEl.notification),
   };
-  const onClose = () => setAnchorEl(null);
+  const onClick = (component) => (event) => {
+    setAnchorEl({ ...anchorEl, [component]: event.currentTarget });
+  };
+  const onClose = (component) => () => {
+    setAnchorEl({ ...anchorEl, [component]: null });
+  };
   const logout = () => navigate("/");
 
   return (
@@ -29,22 +39,38 @@ const Nav = () => {
         <div></div>
       </div>
       <div className="nav-right">
-        <IconButton>
+        <IconButton onClick={onClick("notification")}>
           <NotificationsNoneRoundedIcon {...iconSx} fontSize="small" />
         </IconButton>
-        <IconButton>
-          <InboxRoundedIcon {...iconSx} fontSize="small" />
+        <IconButton onClick={onClick("chats")}>
+          <SmsOutlinedIcon {...iconSx} fontSize="small" />
         </IconButton>
-        <IconButton onClick={onClick}>
+        <IconButton onClick={onClick("profile")}>
           <Avatar {...avartarSx}>J</Avatar>
         </IconButton>
       </div>
 
       <Menu
-        open={open}
-        onClick={onClick}
-        onClose={onClose}
-        anchorEl={anchorEl}
+        open={open.notification}
+        onClick={onClick("notification")}
+        onClose={onClose("notification")}
+        anchorEl={anchorEl.notification}
+        position={"right"}
+      ></Menu>
+
+      <Menu
+        open={open.chats}
+        onClick={onClick("chats")}
+        onClose={onClose("chats")}
+        anchorEl={anchorEl.chats}
+        position={"right"}
+      ></Menu>
+
+      <Menu
+        open={open.profile}
+        onClick={onClick("profile")}
+        onClose={onClose("profile")}
+        anchorEl={anchorEl.profile}
         position={"right"}
       >
         <MenuItem onClick={logout}>Logout</MenuItem>

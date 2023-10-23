@@ -1,0 +1,27 @@
+.view-patient-page > div:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.view-patient-page-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-areas:
+    "grid-a grid-b"
+    "grid-c grid-b"
+    "grid-c grid-b";
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-a {
+  grid-area: grid-a;
+}
+
+.grid-b {
+  border: 1px solid gray;
+  grid-area: grid-b;
+}
+
+.grid-c {
+  grid-area: grid-c;
+  border: 1px solid gray;
+}

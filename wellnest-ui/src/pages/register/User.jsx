@@ -48,7 +48,11 @@ const Register = () => {
           </span>
         </div>
         <Stack direction={"row"} justifyContent={"center"}>
-          <Button styles={"211"} label={"Therapist"} />
+          <Button
+            styles={"211"}
+            label={"Therapist"}
+            onClick={navigateTo("/therapist")}
+          />
         </Stack>
       </div>
     </div>

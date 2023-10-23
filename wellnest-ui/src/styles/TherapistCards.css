@@ -1,28 +1,23 @@
-.info-cards > div:not(:last-child) {
+.therapist-cards > div:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.info-cards-header {
+.therapist-cards-header {
   display: flex;
   justify-content: space-between;
 }
 
-.info-cards-more-action {
+.therapist-cards-more-action {
   cursor: pointer;
 }
 
-.info-cards-grid {
+.therapist-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
-.info-cards-grid:hover .info-card:not(:hover) {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-}
-
-.info-card {
+.therapist-card {
   border: 1px solid;
   padding: 10px;
   display: flex;
@@ -32,38 +27,37 @@
   cursor: pointer;
 }
 
-.info-card > div {
-  width: 50%;
-}
-
-.info-card-image {
+.therapist-card-image {
   border: 1px solid;
-  height: 140px;
+  width: 200px;
 }
 
-.info-card-image img {
+.therapist-card-image img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
 }
 
-.info-card-details > div:not(:last-child) {
-  margin-bottom: 2px;
+.therapist-card-details {
+  width: 100%;
 }
 
-.info-card-detail-rating {
+.therapist-card-details > div:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.therapist-card-detail-rating {
   display: flex;
   align-items: center;
   gap: 2px;
 }
 
-.info-card-detail-rating span {
+.therapist-card-detail-rating span {
   display: flex;
   align-items: center;
 }
 
 @media screen and (max-width: 1024px) {
-  .info-cards-grid {
+  .therapist-cards-grid {
     grid-template-columns: repeat(1, 1fr);
   }
 }
