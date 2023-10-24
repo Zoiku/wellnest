@@ -30,7 +30,7 @@ const Login = () => {
             <div className="auth-button-controller">
               <Button
                 onClick={navigateTo("/user/dashboard")}
-                styles={"200"}
+                styles={"210"}
                 label={"Sign in"}
               />
             </div>
@@ -40,8 +40,8 @@ const Login = () => {
           <span>Or sign in with</span>
         </div>
         <Stack direction={"row"} justifyContent={"center"} gap={1}>
-          <Button icon={<GoogleIcon />} styles={"201"} label={"Google"} />
-          <Button icon={<FacebookIcon />} styles={"201"} label={"Facebook"} />
+          <Button startIcon={<GoogleIcon />} styles={"211"} label={"Google"} />
+          <Button startIcon={<FacebookIcon />} styles={"211"} label={"Facebook"} />
         </Stack>
         <div className="auth-helper">
           <span
@@ -53,7 +53,7 @@ const Login = () => {
         </div>
         <Stack direction={"row"} justifyContent={"center"}>
           <Button
-            styles={"211"}
+            styles={"221"}
             label={"Therapist"}
             onClick={navigateTo("/therapist")}
           />

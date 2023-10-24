@@ -24,12 +24,16 @@ export const styling = (styles) => {
       style = {
         ...style,
         color: {
-          default: "white",
-          hover: "white",
+          default: "black",
+          hover: "black",
         },
         background: {
-          default: "black",
-          hover: "#27282e",
+          default: "inherit",
+          hover: "inherit",
+        },
+        borderColor: {
+          default: "#c5c5c5",
+          hover: "black",
         },
       };
     } else if (index1 === "1") {
@@ -40,8 +44,12 @@ export const styling = (styles) => {
           hover: "white",
         },
         background: {
-          default: "#dd8d8d",
-          hover: "rgb(202, 125, 125)",
+          default: "#424242",
+          hover: "black",
+        },
+        borderColor: {
+          default: "inherit",
+          hover: "inherit",
         },
       };
     } else if (index1 === "2") {
@@ -52,8 +60,28 @@ export const styling = (styles) => {
           hover: "white",
         },
         background: {
-          default: "rgb(226, 138, 226)",
-          hover: "rgb(221, 115, 221)",
+          default: "#F4978E",
+          hover: "#F4978E",
+        },
+        borderColor: {
+          default: "inherit",
+          hover: "inherit",
+        },
+      };
+    } else if (index1 === "3") {
+      style = {
+        ...style,
+        color: {
+          default: "white",
+          hover: "white",
+        },
+        background: {
+          default: "#BD8CE9",
+          hover: "#BD8CE9",
+        },
+        borderColor: {
+          default: "inherit",
+          hover: "inherit",
         },
       };
     }

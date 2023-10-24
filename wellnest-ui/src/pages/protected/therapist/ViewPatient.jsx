@@ -2,6 +2,7 @@ import "../../../styles/ViewPatient.css";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import { useNavigate } from "react-router-dom";
 import PatientCard from "../../../components/PatientCard";
+import Button from "../../../components/Button";
 
 const ViewPatient = () => {
   const navigate = useNavigate();
@@ -9,14 +10,13 @@ const ViewPatient = () => {
 
   return (
     <div className="view-patient-page">
-      <div
-        className="view-therapist-page-action"
-        onClick={navigateTo("/therapist/dashboard")}
-      >
-        <span>
-          <KeyboardBackspaceRoundedIcon />
-        </span>
-        <span>Go back</span>
+      <div>
+        <Button
+          startIcon={<KeyboardBackspaceRoundedIcon />}
+          styles={"001"}
+          label={"Go back"}
+          onClick={navigateTo("/therapist/dashboard")}
+        />
       </div>
 
       <div className="view-patient-page-grid">

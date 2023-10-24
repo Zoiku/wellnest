@@ -43,14 +43,13 @@ const ViewTherapist = () => {
 
   return (
     <div className="view-therapist-page">
-      <div
-        className="view-therapist-page-action"
-        onClick={navigateTo("/user/dashboard")}
-      >
-        <span>
-          <KeyboardBackspaceRoundedIcon />
-        </span>
-        <span>Go back</span>
+      <div>
+        <Button
+          startIcon={<KeyboardBackspaceRoundedIcon />}
+          styles={"001"}
+          label={"Go back"}
+          onClick={navigateTo("/user/dashboard")}
+        />
       </div>
 
       <div className="view-therapist-meta">
@@ -62,8 +61,8 @@ const ViewTherapist = () => {
             <div>John Doe</div>
           </div>
           <div className="view-therapist-profile-action-buttons">
-            <Button styles={"010"} label={"Leave a review"} />
-            <Button styles={"020"} label={"Book now"} />
+            <Button styles={"221"} label={"Leave Review"} />
+            <Button styles={"231"} label={"Book Now"} />
           </div>
         </div>
         <div>
@@ -91,7 +90,7 @@ const ViewTherapist = () => {
       <div className="view-therapist-reviews-container">
         <div>Reviews</div>
         <div className="view-therapist-reviews">
-          {Array.from(Array(5)).map((_, index) => (
+          {Array.from(Array(2)).map((_, index) => (
             <Review key={index} />
           ))}
         </div>

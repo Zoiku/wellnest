@@ -5,15 +5,16 @@ import { styling } from "../styles/js/Button";
 const ButtonComponent = (props) => {
   const styles = styling(props.styles);
   const Button = styled(LoadingButton)({
-    minWidth: 130,
     background: styles?.background.default,
     color: styles?.color.default,
     textTransform: "capitalize",
     borderRadius: props?.borderRadius,
+    borderColor: styles?.borderColor.default,
     fontFamily: [].join(","),
     "&:hover": {
       background: styles?.background.hover,
       color: styles?.color.default,
+      borderColor: styles?.borderColor.hover,
     },
   });
 
@@ -22,7 +23,6 @@ const ButtonComponent = (props) => {
       disableElevation
       variant={styles?.variant}
       fullWidth={styles?.fullWidth}
-      startIcon={props?.icon}
       {...props}
     >
       <span>{props.label}</span>

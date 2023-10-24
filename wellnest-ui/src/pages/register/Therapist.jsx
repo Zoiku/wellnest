@@ -31,7 +31,7 @@ const Register = () => {
               <TextInput label={"Confirm Password"} />
             </div>
             <div className="auth-button-controller">
-              <Button styles={"200"} label={"Sign up"} />
+              <Button styles={"210"} label={"Sign up"} />
             </div>
           </Box>
         </div>
@@ -39,8 +39,8 @@ const Register = () => {
           <span>Or sign up with</span>
         </div>
         <Stack direction={"row"} justifyContent={"center"} gap={1}>
-          <Button icon={<GoogleIcon />} styles={"201"} label={"Google"} />
-          <Button icon={<FacebookIcon />} styles={"201"} label={"Facebook"} />
+          <Button startIcon={<GoogleIcon />} styles={"211"} label={"Google"} />
+          <Button startIcon={<FacebookIcon />} styles={"211"} label={"Facebook"} />
         </Stack>
         <div className="auth-helper">
           <span
@@ -51,7 +51,7 @@ const Register = () => {
           </span>
         </div>
         <Stack direction={"row"} justifyContent={"center"}>
-          <Button styles={"211"} label={"User"} onClick={navigateTo("/")} />
+          <Button styles={"221"} label={"User"} onClick={navigateTo("/")} />
         </Stack>
       </div>
     </div>

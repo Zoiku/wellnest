@@ -1,0 +1,62 @@
+.user-preferences-prompts-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.user-preferences-prompts-page-box {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.prompt-section > div:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.prompt-section-progress progress {
+  width: 100%;
+}
+
+.prompt-question > div:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.prompt-options > div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.prompt-option {
+  text-align: center;
+  cursor: pointer;
+  background: #efefef;
+  padding: 10px;
+  transition: all 0.2s ease;
+}
+
+.prompt-option-selected {
+  background: #bd8ce9;
+  color: white;
+}
+
+.user-preferences-prompts-navigation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.user-preferences-prompts-navigation > div {
+  cursor: pointer;
+  border: 1px solid #c5c5c5;
+  padding: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .user-preferences-prompts-page {
+    padding-top: 10px;
+  }
+}

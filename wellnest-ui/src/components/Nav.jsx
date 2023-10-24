@@ -1,27 +1,23 @@
 import "../styles/Nav.css";
 import { Avatar, IconButton } from "@mui/material";
-import NotificationsNoneRoundedIcon from "@mui/icons-material/NotificationsNoneRounded";
-import SmsOutlinedIcon from "@mui/icons-material/SmsOutlined";
 import Menu from "./Menu";
-import MenuItem from "./MenuItem";
+import { MenuItem } from "./Menu";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Drawer from "./Drawer";
 
-const iconSx = { sx: { color: "#24252a" } };
 const avartarSx = {
-  sx: { width: 30, height: 30, fontSize: "small", fontWeight: 600 },
+  sx: { height: 30, width: 30, fontSize: "small", fontWeight: 600 },
 };
 
 const Nav = () => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState({
     profile: null,
-    chats: null,
     notification: null,
   });
   const open = {
     profile: Boolean(anchorEl.profile),
-    chats: Boolean(anchorEl.chats),
     notification: Boolean(anchorEl.notification),
   };
   const onClick = (component) => (event) => {
@@ -32,6 +28,14 @@ const Nav = () => {
   };
   const logout = () => navigate("/");
 
+  const [openChat, setOpenChat] = useState(false);
+  const handleOpen = () => {
+    setOpenChat(true);
+  };
+  const handleClose = () => {
+    setOpenChat(false);
+  };
+
   return (
     <div className="nav">
       <div className="nav-left">
@@ -39,18 +43,35 @@ const Nav = () => {
         <div></div>
       </div>
       <div className="nav-right">
-        <IconButton onClick={onClick("notification")}>
-          <NotificationsNoneRoundedIcon {...iconSx} fontSize="small" />
+        <IconButton onClick={handleOpen}>
+          <img
+            width="20"
+            height="20"
+            src="https://img.icons8.com/pulsar-line/20/sms.png"
+            alt="/"
+          />
         </IconButton>
-        <IconButton onClick={onClick("chats")}>
-          <SmsOutlinedIcon {...iconSx} fontSize="small" />
+        <IconButton onClick={onClick("notification")}>
+          <img
+            width="20"
+            height="20"
+            src="https://img.icons8.com/pulsar-line/20/appointment-reminders.png"
+            alt="/"
+          />
         </IconButton>
         <IconButton onClick={onClick("profile")}>
           <Avatar {...avartarSx}>J</Avatar>
         </IconButton>
       </div>
 
+      <Drawer
+        open={openChat}
+        onOpen={handleOpen}
+        onClose={handleClose}
+      ></Drawer>
+
       <Menu
+        theme={"light"}
         open={open.notification}
         onClick={onClick("notification")}
         onClose={onClose("notification")}
@@ -59,14 +80,7 @@ const Nav = () => {
       ></Menu>
 
       <Menu
-        open={open.chats}
-        onClick={onClick("chats")}
-        onClose={onClose("chats")}
-        anchorEl={anchorEl.chats}
-        position={"right"}
-      ></Menu>
-
-      <Menu
+        theme={"light"}
         open={open.profile}
         onClick={onClick("profile")}
         onClose={onClose("profile")}
