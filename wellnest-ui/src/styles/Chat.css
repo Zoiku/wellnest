@@ -1,0 +1,37 @@
+.chat {
+  height: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.chat > div {
+  border-radius: 5px;
+  height: 100%;
+  overflow: auto;
+}
+
+.chat-left {
+  width: 40%;
+  border: 1px solid #c5c5c5;
+}
+
+.chat-items > div:not(:last-child) {
+  border-bottom: 1px solid #c5c5c5;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  font-size: small;
+}
+
+.chat-right {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #c5c5c5;
+}

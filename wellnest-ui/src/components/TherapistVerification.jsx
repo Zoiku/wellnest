@@ -6,12 +6,17 @@ import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 
 const TherapistVerification = ({ handleTherapistVerification }) => {
   const [documents, setDocuments] = useState([]);
-  const [documentName, setDocumentName] = useState(null);
-  const handleDocumentName = (event) => {
-    setDocumentName(event.target.value);
+  const [uploadDocument, setUploadDocument] = useState("");
+  const handleUploadDocument = (event) => {
+    setUploadDocument(event.target.value);
   };
   const handleAddDocument = () => {
-    setDocuments([...documents, documentName]);
+    if (uploadDocument === "") return;
+    setDocuments([...documents, uploadDocument]);
+    setUploadDocument("");
+  };
+  const handleRemoveDocument = (document) => () => {
+    setDocuments(documents.filter((doc) => doc !== document));
   };
 
   return (
@@ -28,12 +33,16 @@ const TherapistVerification = ({ handleTherapistVerification }) => {
         </div>
         <div className="therapist-verfication-upload">
           <TextField
-            onChange={handleDocumentName}
-            fullWidth
+            value={uploadDocument}
+            onChange={handleUploadDocument}
             size={"small"}
             placeholder={"Document Title"}
           />
-          <Button onClick={handleAddDocument} label={"Upload"} styles={"231"} />
+          <Button
+            onClick={handleAddDocument}
+            label={"Upload Document"}
+            styles={"231"}
+          />
         </div>
 
         {documents && documents.length > 0 && (
@@ -43,7 +52,10 @@ const TherapistVerification = ({ handleTherapistVerification }) => {
               {documents.map((document, index) => (
                 <div className="uploaded-document-row" key={index}>
                   <div className="uploaded-document-row-name">{document}</div>
-                  <IconButton sx={{ background: "#BD8CE9", color: "white" }}>
+                  <IconButton
+                    onClick={handleRemoveDocument(document)}
+                    sx={{ background: "#BD8CE9", color: "white" }}
+                  >
                     <DeleteOutlineRoundedIcon fontSize="small" />
                   </IconButton>
                 </div>

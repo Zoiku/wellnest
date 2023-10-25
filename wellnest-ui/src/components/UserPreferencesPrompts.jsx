@@ -72,6 +72,13 @@ const UserPreferencesPrompts = ({ handleCompletePreference }) => {
     return false;
   };
 
+  const submitPromptButtonDisable = () => {
+    if (Object.keys(responses).length === Prompts.length) {
+      return false;
+    }
+    return true;
+  };
+
   return (
     <div className="user-preferences-prompts-page">
       <div className="user-preferences-prompts-page-box">
@@ -138,8 +145,9 @@ const UserPreferencesPrompts = ({ handleCompletePreference }) => {
               />
               {currentPromptIndex + 1 === Prompts.length ? (
                 <Button
+                  disabled={submitPromptButtonDisable()}
                   label={"Save & Continue"}
-                  styles={"221"}
+                  styles={"211"}
                   onClick={handleSubmit}
                 />
               ) : (

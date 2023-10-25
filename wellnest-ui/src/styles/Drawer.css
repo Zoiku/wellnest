@@ -1,0 +1,18 @@
+.drawer-chat {
+  height: 50% !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 1000px !important;
+  border-radius: 10px 10px 0 0;
+  overflow: visible !important;
+}
+
+.drawer-close-button {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: #24252a;
+  border-radius: 50%;
+  color: white;
+}

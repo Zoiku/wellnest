@@ -17,11 +17,27 @@
 }
 
 .grid-b {
-  border: 1px solid gray;
+  border: 1px solid #c5c5c5;
   grid-area: grid-b;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .grid-c {
   grid-area: grid-c;
-  border: 1px solid gray;
+  border: 1px solid #c5c5c5;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.patient-history > div:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.patient-history-controller > div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.meeting-schedule {
+  border-color: red;
 }

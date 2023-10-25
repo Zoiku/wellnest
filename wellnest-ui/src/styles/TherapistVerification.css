@@ -16,8 +16,11 @@
 
 .therapist-verfication-upload {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+}
+
+.therapist-verfication-upload > div:nth-child(1) {
+  width: 65%;
 }
 
 .uploaded-document-rows > div:not(:last-child) {
@@ -32,7 +35,8 @@
 }
 
 .uploaded-document-row-name {
-  border: 1px solid #c5c5c5;
+  background: #efefef;
+  border-radius: 5px;
   padding: 10px 0;
   width: 100%;
 }

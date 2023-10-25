@@ -5,6 +5,7 @@ import { MenuItem } from "./Menu";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Drawer from "./Drawer";
+import Chat from "./Chat";
 
 const avartarSx = {
   sx: { height: 30, width: 30, fontSize: "small", fontWeight: 600 },
@@ -27,7 +28,6 @@ const Nav = () => {
     setAnchorEl({ ...anchorEl, [component]: null });
   };
   const logout = () => navigate("/");
-
   const [openChat, setOpenChat] = useState(false);
   const handleOpen = () => {
     setOpenChat(true);
@@ -51,14 +51,14 @@ const Nav = () => {
             alt="/"
           />
         </IconButton>
-        <IconButton onClick={onClick("notification")}>
+        {/* <IconButton onClick={onClick("notification")}>
           <img
             width="20"
             height="20"
             src="https://img.icons8.com/fluency-systems-regular/20/appointment-reminders--v1.png"
             alt="/"
           />
-        </IconButton>
+        </IconButton> */}
         <IconButton onClick={onClick("profile")}>
           <Avatar {...avartarSx}>J</Avatar>
         </IconButton>
@@ -68,7 +68,10 @@ const Nav = () => {
         open={openChat}
         onOpen={handleOpen}
         onClose={handleClose}
-      ></Drawer>
+        className={"drawer-chat"}
+      >
+        <Chat />
+      </Drawer>
 
       <Menu
         theme={"light"}

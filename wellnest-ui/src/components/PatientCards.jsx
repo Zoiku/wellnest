@@ -19,7 +19,7 @@ const PatientCards = ({ user, title }) => {
         <div className="patient-cards-more-action">View All</div>
       </div>
       <div className="patient-cards-grid">
-        {Array.from(Array(10)).map((_, index) => (
+        {Array.from(Array(4)).map((_, index) => (
           <PatientCard key={index} color={color[user]} />
         ))}
       </div>
