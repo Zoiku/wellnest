@@ -4,13 +4,26 @@ export const Prompts = [
     heading: "To continue, please help us understand your preferences",
     name: "mainTherapyReason",
     question: "What is your main reason for therapy?",
-    options: ["Anxiety", "Depression", "Relationships", "Trauma"],
+    options: ["Anxiety", "Depression", "Relationships", "Trauma", "Other"],
+    supporting: {
+      optionIndexTrigger: 4,
+      type: "text",
+      placeholder: "Please specify",
+    },
   },
   {
     id: 1,
     name: "previousTherapyExperience",
     question: "Do you have any previous therapy experience?",
     options: ["Yes", "No"],
+    supporting: {
+      optionIndexTrigger: 0,
+      type: "text",
+      multiline: {
+        line: 5,
+      },
+      placeholder: "Please briefly describe your experience",
+    },
   },
   {
     id: 2,

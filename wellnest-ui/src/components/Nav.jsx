@@ -47,7 +47,7 @@ const Nav = () => {
           <img
             width="20"
             height="20"
-            src="https://img.icons8.com/pulsar-line/20/sms.png"
+            src="https://img.icons8.com/fluency-systems-regular/20/sms.png"
             alt="/"
           />
         </IconButton>
@@ -55,7 +55,7 @@ const Nav = () => {
           <img
             width="20"
             height="20"
-            src="https://img.icons8.com/pulsar-line/20/appointment-reminders.png"
+            src="https://img.icons8.com/fluency-systems-regular/20/appointment-reminders--v1.png"
             alt="/"
           />
         </IconButton>

@@ -1,5 +1,4 @@
 .user-preferences-prompts-page {
-  height: 100vh;
   display: flex;
   justify-content: center;
   padding-top: 100px;
@@ -8,7 +7,7 @@
 .user-preferences-prompts-page-box {
   position: relative;
   width: 400px;
-  height: 400px;
+  height: 500px;
 }
 
 .prompt-section > div:not(:last-child) {
@@ -46,6 +45,7 @@
   left: 0;
   right: 0;
   display: flex;
+  justify-content: space-between;
   gap: 10px;
 }
 

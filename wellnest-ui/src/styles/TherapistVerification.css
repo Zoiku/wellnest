@@ -1,0 +1,38 @@
+.therapist-verification-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.therapist-verification-page-box {
+  position: relative;
+  width: 450px;
+  text-align: center;
+}
+
+.therapist-verification-page-box > div:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.therapist-verfication-upload {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.uploaded-document-rows > div:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.uploaded-document-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.uploaded-document-row-name {
+  border: 1px solid #c5c5c5;
+  padding: 10px 0;
+  width: 100%;
+}

@@ -5,6 +5,7 @@ import Button from "./Button";
 import WestRoundedIcon from "@mui/icons-material/WestRounded";
 import EastRoundedIcon from "@mui/icons-material/EastRounded";
 import Progress from "./Progress";
+import { TextField } from "@mui/material";
 
 const UserPreferencesPrompts = ({ handleCompletePreference }) => {
   const [currentPromptIndex, setCurrentPromptIndex] = useState(0);
@@ -17,10 +18,58 @@ const UserPreferencesPrompts = ({ handleCompletePreference }) => {
   };
   const [responses, setReponses] = useState({});
   const handleResponses = (prompt, response) => () => {
-    setReponses({ ...responses, [prompt]: response });
+    setReponses({
+      ...responses,
+      [prompt]: {
+        responseIndex: response,
+      },
+    });
   };
   const handleSubmit = () => {
     handleCompletePreference();
+  };
+
+  const handleChangeSupport = (prompt) => (event) => {
+    setReponses({
+      ...responses,
+      [prompt]: {
+        ...responses[prompt],
+        support: event.target.value,
+      },
+    });
+  };
+
+  const nextPromptButtonDisable = () => {
+    if (
+      !Object.keys(responses)
+        .map((number) => Number(number))
+        .includes(currentPromptIndex)
+    ) {
+      return true;
+    } else {
+      if (
+        responses[currentPromptIndex].responseIndex !==
+        currentPrompt?.supporting?.optionIndexTrigger
+      ) {
+        return false;
+      } else {
+        if (
+          responses[currentPromptIndex].support &&
+          String(responses[currentPromptIndex].support).length > 0
+        ) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+  };
+
+  const previousPromptButtonDisable = () => {
+    if (currentPromptIndex === 0) {
+      return true;
+    }
+    return false;
   };
 
   return (
@@ -48,19 +97,39 @@ const UserPreferencesPrompts = ({ handleCompletePreference }) => {
                     onClick={handleResponses(currentPrompt.id, index)}
                     className={`prompt-option ${
                       currentPrompt.id === Prompts.at(currentPromptIndex).id &&
-                      responses[currentPromptIndex] === index &&
+                      responses[currentPromptIndex] &&
+                      responses[currentPromptIndex].responseIndex === index &&
                       "prompt-option-selected"
                     }`}
                   >
                     <span>{option}</span>
                   </div>
                 ))}
+
+                {currentPrompt.supporting &&
+                  responses[currentPromptIndex] &&
+                  responses[currentPromptIndex].responseIndex ===
+                    currentPrompt.supporting.optionIndexTrigger && (
+                    <TextField
+                      value={responses[currentPromptIndex].support}
+                      onChange={handleChangeSupport(currentPrompt.id)}
+                      size="small"
+                      multiline={
+                        currentPrompt.supporting?.multiline ? true : false
+                      }
+                      rows={
+                        currentPrompt.supporting?.multiline?.line ?? undefined
+                      }
+                      placeholder={currentPrompt.supporting.placeholder}
+                      fullWidth
+                    />
+                  )}
               </div>
             </div>
 
             <div className="user-preferences-prompts-navigation">
               <Button
-                disabled={currentPromptIndex === 0}
+                disabled={previousPromptButtonDisable()}
                 fullWidth={false}
                 onClick={previousPrompt}
                 label={"Previous"}
@@ -69,18 +138,13 @@ const UserPreferencesPrompts = ({ handleCompletePreference }) => {
               />
               {currentPromptIndex + 1 === Prompts.length ? (
                 <Button
-                  disabled={Object.keys(responses).length < Prompts.length}
                   label={"Save & Continue"}
-                  styles={"211"}
+                  styles={"221"}
                   onClick={handleSubmit}
                 />
               ) : (
                 <Button
-                  disabled={
-                    !Object.keys(responses)
-                      .map((index) => Number(index))
-                      .includes(currentPromptIndex)
-                  }
+                  disabled={nextPromptButtonDisable()}
                   onClick={nextPrompt}
                   label={"Next"}
                   styles={"101"}
