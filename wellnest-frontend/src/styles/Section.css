@@ -1,0 +1,13 @@
+.custom-section > div:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.custom-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.custom-section-label-helper {
+  color: #999;
+}

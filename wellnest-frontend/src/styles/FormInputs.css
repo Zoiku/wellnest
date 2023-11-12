@@ -1,0 +1,16 @@
+.form-inputs > div:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.form-input > div:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.form-input input {
+  width: 100%;
+}
+
+.form-label {
+  display: flex;
+  justify-content: space-between;
+}
