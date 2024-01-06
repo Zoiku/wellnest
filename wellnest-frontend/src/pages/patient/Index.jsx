@@ -2,19 +2,26 @@ import "../../styles/Auth.css";
 import FormInput, { FormInputs } from "../../components/FormInputs";
 import useForm from "../../hooks/useForm";
 import Button from "../../components/Button";
+import useNavigation from "../../hooks/useNavigation";
 
 const Index = () => {
+  const { goTo } = useNavigation();
   const { values, handleChange, handleSubmit, loading, errors } =
-    useForm("signIn");
+    useForm("signInPatient");
 
   return (
     <div className="auth-page">
       <div className="auth-form-wrapper">
         <form onSubmit={handleSubmit} className="auth-form">
+          <div>
+            <center>
+              <h1>Wellnest</h1>
+            </center>
+          </div>
+
           <FormInputs>
             <FormInput
               error={errors.length > 0}
-              label={"Email"}
               placeholder={"Enter your email"}
               value={values.email}
               onChange={handleChange}
@@ -24,7 +31,6 @@ const Index = () => {
             />
             <FormInput
               error={errors.length > 0}
-              label={"Password"}
               placeholder={"Enter your password"}
               value={values.password}
               onChange={handleChange}
@@ -33,14 +39,19 @@ const Index = () => {
               required
             />
           </FormInputs>
-          <Button
-            color={errors.length > 0 ? "error" : undefined}
-            fullWidth
-            style={"000"}
-            type={"submit"}
-            label={"Submit"}
-            loading={loading}
-          />
+          <div>
+            <Button
+              color={errors.length > 0 ? "error" : undefined}
+              fullWidth
+              style={"000"}
+              type={"submit"}
+              label={"Sign in"}
+              loading={loading}
+            />
+          </div>
+          <div className="auth-user-switch">
+            <Button onClick={() => goTo("/therapist")} label={"Therapist"} />
+          </div>
         </form>
       </div>
     </div>

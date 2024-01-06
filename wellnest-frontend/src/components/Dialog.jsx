@@ -8,6 +8,7 @@ import Button from "./Button";
 const Dialog = (props) => {
   return (
     <MuiDialog
+      disableScrollLock
       maxWidth="xs"
       open={props.open}
       onClose={props.handleClose}
@@ -28,7 +29,7 @@ const Dialog = (props) => {
 
       <DialogActions>
         <Button label={"Disagree"} onClick={props.handleClose} />
-        <Button label={"Agree"} autoFocus />
+        <Button label={"Agree"} onClick={props.handleAgree} autoFocus />
       </DialogActions>
     </MuiDialog>
   );

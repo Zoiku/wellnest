@@ -1,5 +1,13 @@
-.custom-section > div:not(:last-child) {
-  margin-bottom: 5px;
+.custom-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.custom-section > div {
+  width: 100%;
 }
 
 .custom-section-header {

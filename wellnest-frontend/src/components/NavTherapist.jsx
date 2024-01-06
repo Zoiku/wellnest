@@ -37,10 +37,7 @@ const NavPatient = () => {
         position={"right"}
       >
         <MenuList dense>
-          <MenuItem onClick={() => goTo("/patient/therapists/")}>
-            Therapists
-          </MenuItem>
-          <MenuItem onClick={() => goTo("/patient/appointments/")}>
+          <MenuItem onClick={() => goTo("/therapist/appointments/")}>
             Appointments
           </MenuItem>
         </MenuList>

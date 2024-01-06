@@ -1,11 +1,10 @@
 import "../../styles/TherapistProfile.css";
-import { Avatar, Skeleton } from "@mui/material";
-import Centered from "../../components/Centered";
+import { Avatar } from "@mui/material";
 import Button from "../../components/Button";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import useNavigation from "../../hooks/useNavigation";
 import Rating from "@mui/material/Rating";
-import useModal from "../../hooks/useModal";
+import useDialog from "../../hooks/useDialog";
 import useTherapists from "../../hooks/useTherapists";
 import Dialog from "../../components/Dialog";
 import { useParams } from "react-router-dom";
@@ -33,13 +32,13 @@ const TherapistReview = () => (
 const TherapistProfile = () => {
   const { id } = useParams();
   const { goBack } = useNavigation();
-  const { open, handleOpen, handleClose } = useModal();
+  const { open, handleOpen, handleClose, handleAgree } = useDialog();
   const { getTherapist } = useTherapists();
   const therapist = getTherapist(id);
 
   return (
     <>
-      <Centered className={"therapist-profile-page"}>
+      <div className="therapist-profile-page">
         <div>
           <Button
             onClick={goBack}
@@ -88,15 +87,16 @@ const TherapistProfile = () => {
             <TherapistReview key={index} />
           ))}
         </div>
-      </Centered>
+      </div>
 
       <Dialog
         open={open}
         handleOpen={handleOpen}
         handleClose={handleClose}
+        handleAgree={handleAgree}
         title={"Request an appointment?"}
         content={
-          "An appointment will be scheduled and communicated to you once the request is accepted by the Therapist."
+          "The appointment will be scheduled and communicated to you once the request is accepted by the Therapist."
         }
       />
     </>

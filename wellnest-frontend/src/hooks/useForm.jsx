@@ -6,22 +6,39 @@ import {
 } from "../states/Index";
 import useAxios from "./useAxios";
 import { useState } from "react";
+import useSnackbar from "./useSnackbar";
 
 const useForm = (handler) => {
   const { post } = useAxios();
+  const { alertError, alertOff } = useSnackbar();
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState([]);
-  
   const { signIn } = useAuth();
+  const [errors, setErrors] = useState([]);
 
-  const handleSignIn = async (event) => {
+  const handleSignInPatient = async (event) => {
     event.preventDefault();
     setLoading(true);
     try {
-      const { data } = await post("/patient/login", values);
-      signIn(data);
+      const { data } = await post("/login", { ...values, role: "patient" });
+      alertOff();
+      signIn(data, "patient");
     } catch (error) {
       setErrors([...errors, error]);
+      alertError("Incorrect Username or Password");
+    }
+    setLoading(false);
+  };
+
+  const handleSignInTherapist = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      const { data } = await post("/login", { ...values, role: "therapist" });
+      alertOff();
+      signIn(data, "therapist");
+    } catch (error) {
+      setErrors([...errors, error]);
+      alertError("Incorrect Username or Password");
     }
     setLoading(false);
   };
@@ -31,15 +48,20 @@ const useForm = (handler) => {
   };
 
   const formHandler = {
-    signIn: {
+    signInPatient: {
       initialValues: signInFormInitialValues,
-      handleSubmit: handleSignIn,
-      handleValidation: () => {},
+      handleSubmit: handleSignInPatient,
+      handleValidation: null,
+    },
+    signInTherapist: {
+      initialValues: signInFormInitialValues,
+      handleSubmit: handleSignInTherapist,
+      handleValidation: null,
     },
     signUp: {
       initialValues: signUpFormInitialValues,
       handleSubmit: handleSignUp,
-      handleValidation: () => {},
+      handleValidation: null,
     },
     preferences: {
       initialValues: {},

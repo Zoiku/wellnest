@@ -2,8 +2,10 @@ import { useState, useMemo } from "react";
 import prompts from "../utilities/preferences";
 import useForm from "./useForm";
 import useAuth from "./useAuth";
+import useSnackbar from "./useSnackbar";
 
 const usePreferences = () => {
+  const { alertSuccess } = useSnackbar();
   const { modifyAuth } = useAuth();
   const { handleChange, values } = useForm("preferences");
   const [preference, setPreference] = useState({});
@@ -28,6 +30,7 @@ const usePreferences = () => {
   const disablehandleSubmit = false;
   const handleSubmit = () => {
     modifyAuth("preferences", preference);
+    alertSuccess("Congratulations! You are all set up");
   };
 
   return {

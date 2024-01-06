@@ -3,7 +3,8 @@
 }
 
 .therapist-profile-image {
-  height: 120px;
+  height: 150px;
+  width: 150px;
   border-radius: 10px;
   border: 1px solid #c5c5c5;
   padding: 10px;

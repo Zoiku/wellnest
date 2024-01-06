@@ -1,5 +1,4 @@
 import "../../styles/Dashboard.Patient.css";
-import Centered from "../../components/Centered";
 import Section from "../../components/Section";
 import useNavigation from "../../hooks/useNavigation";
 import useTherapists from "../../hooks/useTherapists";
@@ -7,9 +6,10 @@ import { Skeleton } from "@mui/material";
 
 const TherapistCard = (props) => {
   const { goTo } = useNavigation();
+
   return (
     <div
-      onClick={() => goTo(`/patient/view/therapist/${props.id}`)}
+      onClick={() => goTo(`/patient/therapists/${props.id}`)}
       className="therapist-card"
     >
       <div className="therapist-card-image">
@@ -38,10 +38,10 @@ const TherapistCardSkeleton = () => (
 );
 
 const Dashboard = () => {
-  const { matched, others, isLoading } = useTherapists();
+  const { matched, others } = useTherapists();
   return (
-    <Centered className={"dashboard-page"}>
-      <Section className={"therapist-cards"} label={"View Matched Therapists"}>
+    <div className="dashboard-page">
+      <Section className={"therapist-cards"} label={"Matched Therapists"}>
         {matched
           ? matched.map((match, index) => (
               <TherapistCard
@@ -58,7 +58,7 @@ const Dashboard = () => {
             ))}
       </Section>
 
-      <Section className={"therapist-cards"} label={"View Other Therapists"}>
+      <Section className={"therapist-cards"} label={"Other Therapists"}>
         {others
           ? others.map((other, index) => (
               <TherapistCard
@@ -74,7 +74,7 @@ const Dashboard = () => {
               <TherapistCardSkeleton key={index} />
             ))}
       </Section>
-    </Centered>
+    </div>
   );
 };
 

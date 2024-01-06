@@ -4,12 +4,17 @@ import { atomWithStorage } from "jotai/utils";
 
 const authAtom = atomWithStorage("auth", localStorage.getItem("auth"));
 
+const signInRedirect = {
+  patient: "/patient/therapists",
+  therapist: "/therapist/patients",
+};
+
 const useAuth = () => {
   const { goToWithoutHistory } = useNavigation();
   const [auth, setAuth] = useAtom(authAtom);
-  const signIn = (authData) => {
+  const signIn = (authData, role) => {
     setAuth(authData);
-    goToWithoutHistory("/patient/dashboard", { replace: true });
+    goToWithoutHistory(signInRedirect[role], { replace: true });
   };
   const signOut = () => {
     setAuth(null);

@@ -4,7 +4,7 @@ const styling = (style) => {
       textTransform: "capitalize",
       fontWeight: 600,
     },
-    variant: "text",
+    variant: "outlined",
   };
 
   return styles;

@@ -19,10 +19,11 @@ const Menu = (props) => {
       open={props.open}
       anchorEl={props.anchorEl}
       onClose={props.onClose}
-      onClick={props.onClick}
+      onClick={props.onClose}
       transformOrigin={position[props.position]?.transformOrigin}
       anchorOrigin={position[props.position]?.anchorOrigin}
       MenuListProps={{
+        sx: { py: 0 },
         "aria-labelledby": "lock-button",
         role: "listbox",
       }}
@@ -31,6 +32,8 @@ const Menu = (props) => {
           elevation: 1,
           sx: {
             minWidth: 150,
+            py: 0,
+            mt: 1,
           },
         },
       }}

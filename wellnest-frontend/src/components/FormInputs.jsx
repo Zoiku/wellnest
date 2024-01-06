@@ -1,5 +1,4 @@
 import "../styles/FormInputs.css";
-import useObject from "../hooks/useObject";
 import { TextField } from "@mui/material";
 
 export const FormInputs = ({ children }) => (
@@ -7,16 +6,11 @@ export const FormInputs = ({ children }) => (
 );
 
 const FormInput = (props) => {
-  const { removeProps } = useObject(props);
-  const newProps = removeProps(["label", "labelHelper"]);
+  const { labelHelper, ...restProps } = props;
   return (
-    <div className="form-input">
-      <div className="form-label">
-        <span>{props.label}</span>
-      </div>
-      <div>
-        <TextField size="small" fullWidth {...newProps} />
-      </div>
+    <div className={`form-input ${labelHelper && "form-input-with-helper"}`}>
+      {labelHelper && <div>{labelHelper}</div>}
+      <TextField size="small" fullWidth {...restProps} />
     </div>
   );
 };

@@ -2,13 +2,13 @@
   margin-bottom: 50px;
 }
 
-.therapist-cards {
+.patient-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
-.therapist-card {
+.patient-card {
   padding: 10px;
   border: 1px solid #c5c5c5;
   border-radius: 10px;
@@ -20,27 +20,21 @@
   cursor: pointer;
 }
 
-.therapist-card > div {
-  width: 50%;
-}
-
-.therapist-card-image {
-  border: 1px solid #c5c5c5;
+.patient-card-image {
   height: 140px;
   border-radius: 10px;
+  width: 140px;
+  border: 1px solid #c5c5c5;
 }
 
-.therapist-card-image img {
+.patient-card-image img {
   width: 100%;
   height: 100%;
 }
 
-@media screen and (max-width: 1024px) {
-  .therapist-cards {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .therapist-card-image {
-    height: 100%;
-  }
+.patient-card-description {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }

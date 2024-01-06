@@ -2,7 +2,7 @@ import "../styles/Section.css";
 
 const Section = (props) => {
   return (
-    <section className="custom-section">
+    <div className="custom-section">
       <div className="custom-section-header">
         <span className="custom-section-label">{props.label}</span>
         {props.labelHelper && (
@@ -11,8 +11,8 @@ const Section = (props) => {
           </span>
         )}
       </div>
-      <div className={props.className}>{props.children}</div>
-    </section>
+      <div className={`custom-section-body ${props.className}`}>{props.children}</div>
+    </div>
   );
 };
 

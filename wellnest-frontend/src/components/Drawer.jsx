@@ -15,7 +15,7 @@ const Drawer = (props) => {
       onOpen={props.handleOpen}
     >
       {props.title && (
-        <AppBar color="info" position="relative">
+        <AppBar position="relative">
           <Toolbar>
             <div className="app-toolbar">
               <h3>{props.title}</h3>

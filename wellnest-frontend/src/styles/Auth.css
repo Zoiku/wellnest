@@ -5,12 +5,16 @@
 
 .auth-form-wrapper {
   position: absolute;
-  top: 100px;
-  left: 20px;
-  border-radius: 5px;
-  width: 300px;
+  top: 50px;
+  left: 50px;
+  width: 250px;
 }
 
 .auth-form > div:not(:last-child) {
   margin-bottom: 20px;
+}
+
+.auth-user-switch {
+  display: flex;
+  justify-content: center;
 }
